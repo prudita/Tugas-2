@@ -8,4 +8,23 @@
 {% block content %}
   <h1>Hello, world!</h1>
   <p><img src="{% static 'img/django-logo-negative.svg' %}"></p>
+  <table>
+    <tr>
+        <th>Nama</th>
+        <th>Mata-Kuliah</th>
+        <th>Tenggat-Waktu</th>
+        <th>Progress</th>
+        <th>Deskripsi</th>
+    </tr>
+    {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
+</table>
+{% for assignment in list_of_assignments %}
+    <tr>
+        <td>{{assignment.name}}</td>
+        <td>{{assignment.subject}}</td>
+        <td>{{assignment.date}}</td>
+        <td>{{assignment.progress}}</td>
+        <td>{{assignment.description}}</td>
+    </tr>
+{% endfor %}
 {% endblock content %}
