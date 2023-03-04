@@ -18,6 +18,12 @@
     </tr>
     {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
 </table>
+<br>
+<a href="{% url 'study_tracker:create_assignment' %}">
+    <button>
+        Tugas Baru
+    </button>
+</a>
 {% for assignment in list_of_assignments %}
     <tr>
         <td>{{assignment.name}}</td>
