@@ -23,7 +23,8 @@ def create_assignment(request):
 def show_tracker(request):
     assignment_data = Assignment.objects.all()
     context = {
-        'list_of_assignments': assignment_data
+        'list_of_assignments': assignment_data,
+        'name': '',
     }
     return render(request, "home.html", context)
 
