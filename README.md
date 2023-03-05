@@ -20,14 +20,14 @@ Menambahkan kode yang diawali tag dan diakhiri tag pada file home.html yang terd
 Membuat fungsi show_xml dan show_json pada views.py yang masing-masing menerima parameter request dan memiliki variabel data yang menyimpan semua object dari class Assignment dan me-return data dalam format xml dan json. Lalu, meng-import kedua fungsi tersebut ke urls.py pada study_tracker dan menambahkan path url ke urlpatterns untuk mengakses fungsi-fungsi tersebut.
 Referensi:
 
-Slide 2 Kuliah Pemrograman Berbasis Platform Genap 2022/2023
+* Slide 2 Kuliah Pemrograman Berbasis Platform Genap 2022/2023
 
-https://www.guru99.com/xml-vs-html-difference.html#:~:text=XML%20is%20abbreviation%20for%20extensible,while%20HTML%20is%20Case%20insensitive
+* https://www.guru99.com/xml-vs-html-difference.html#:~:text=XML%20is%20abbreviation%20for%20extensible,while%20HTML%20is%20Case%20insensitive
 
-https://byjus.com/free-ias-prep/difference-between-xml-and-html/
+* https://byjus.com/free-ias-prep/difference-between-xml-and-html/
 
-https://www.guru99.com/json-vs-xml-difference.html#:~:text=Key%20Difference%20Between%20JSON%20and,more%20secure%20compared%20to%20JSON
+* https://www.guru99.com/json-vs-xml-difference.html#:~:text=Key%20Difference%20Between%20JSON%20and,more%20secure%20compared%20to%20JSON
 
-https://appmaster.io/blog/json-vs-xml
+* https://appmaster.io/blog/json-vs-xml
 
-https://stackoverflow.com/questions/3294572/is-input-well-formed-without-a-form
+* https://stackoverflow.com/questions/3294572/is-input-well-formed-without-a-form
