@@ -18,6 +18,8 @@ Membuat fungsi create_assignment pada views.py yang menerima parameter request. 
 Membuat file create_assignment.html pada folder main/templates. File ini berisi tabel yang dapat diisi oleh pengguna. Lalu meng-impor fungsi create_assignment dari views.py ke file urls.py yang terdapat pada folder study_tracker dan menambahkan path url ke dalam urlpatterns untuk mengakses fungsi tersebut.
 Menambahkan kode yang diawali tag dan diakhiri tag pada file home.html yang terdapat pada main/templates.
 Membuat fungsi show_xml dan show_json pada views.py yang masing-masing menerima parameter request dan memiliki variabel data yang menyimpan semua object dari class Assignment dan me-return data dalam format xml dan json. Lalu, meng-import kedua fungsi tersebut ke urls.py pada study_tracker dan menambahkan path url ke urlpatterns untuk mengakses fungsi-fungsi tersebut.
+
+
 Referensi:
 
 * Slide 2 Kuliah Pemrograman Berbasis Platform Genap 2022/2023
