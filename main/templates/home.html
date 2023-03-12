@@ -23,7 +23,18 @@
     {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
 </table>
 
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
+
 <br>
+
+<a href="{% url 'study_tracker:logout' %}">
+    <button>
+        Logout
+    </button>
+</a>
+
+
 <a href="{% url 'study_tracker:create_assignment' %}">
     <button>
         Tugas Baru
