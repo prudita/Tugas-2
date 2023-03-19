@@ -1,4 +1,4 @@
-Tautan aplikasi Railway: https://study-tr4cker.up.railway.app/
+
 
 Tugas 2
 
@@ -20,6 +20,47 @@ Menambahkan kode yang diawali tag dan diakhiri tag pada file home.html yang terd
 Membuat fungsi show_xml dan show_json pada views.py yang masing-masing menerima parameter request dan memiliki variabel data yang menyimpan semua object dari class Assignment dan me-return data dalam format xml dan json. Lalu, meng-import kedua fungsi tersebut ke urls.py pada study_tracker dan menambahkan path url ke urlpatterns untuk mengakses fungsi-fungsi tersebut.
 
 
+Tugas 5
+Internal CSS adalah kode CSS yang diletakkan di dalam <head> dari file HTML. CSS internal diletakkan di dalam tag <style></style>.
+Kelebihan internal CSS:
+
+1. Perubahan hanya terjadi pada 1 halaman
+
+2. Tidak perlu meng-upload beberapa file karena HTML dan CSS bisa digunakan di file yang sama.
+
+Kekurangan menggunakan Internal CSS:
+
+1. Meningkatkan waktu akses website
+2. Tidak efisien jika CSS yang sama ingin digunakan pada beberapa file.
+
+External CSS adalah kode CSS yang diletakkan dalam file CSS eksternal, bukan dalam file HTML. File CSS eksternal diletakkan setelah bagian <head> pada halaman HTML.
+Kelebihan CSS eksternal:
+
+1. Ukuran file HTML menjadi lebih kecil dan strukturnya lebih rapi
+2. Kecepatan loading menjadi lebih cepat
+3. File CSS yang sama bisa digunakan di banyak halaman.
+
+Kekurangan CSS eksternal:
+1. Halaman belum tampil secara sempurna hingga file CSS selesai dipanggil.
+
+
+Inline CSS adalah kode CSS yang digunakan untuk tag HTML tertentu.
+Kelebiha  Inline CSS:
+1. Membuat perbaikan menjadi cepat
+2. Permintaan HTTP yang lebih kecil
+Kekurangan inline CSS:
+
+1. Inline CSS harus diterapkan pada setiap tag
+
+Tipe-Tipe CSS selector
+1. Element Selector
+Selector yang mengelompokkan elemen berdasarkan nama elemennya. Misalnya, h1, p, table, dan lain-lain.
+2. Class Selector
+Selector yang mengelompokkan elemen berdasarkan class-nya. Semua elemen anggota suatu class akan dipengaruhi oleh kode CSS dalam class selector
+3. ID Selector
+Selector yang mengelompokkan elemen berdasarkan id yang diberikan kepadanya. Id bersifat unik. Dalam kode CSS, id diawali dengan "#".
+
+
 Referensi:
 
 * Slide 2 Kuliah Pemrograman Berbasis Platform Genap 2022/2023
@@ -33,3 +74,7 @@ Referensi:
 * https://appmaster.io/blog/json-vs-xml
 
 * https://stackoverflow.com/questions/3294572/is-input-well-formed-without-a-form
+
+* https://www.hostinger.co.id/tutorial/perbedaan-inline-css-external-css-dan-internal-css
+
+

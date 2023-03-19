@@ -6,8 +6,49 @@
 {% endblock meta %}
 
 {% block content %}
-  <h1>Hello, world!</h1>
-  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<nav class="navbar navbar-expand-lg bg-light">
+
+    <div class="container-fluid" style="background-color: rgba(245, 120, 2);">
+      <a class="navbar-brand" href="#" >Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">{{name}}</a></li>
+              <li><a class="dropdown-item" href="#"></a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <h1 >Hello, world!</h1>
+
   <p><img src="{% static 'img/django-logo-negative.svg' %}"></p>
  
  
@@ -19,10 +60,32 @@
         <th>Tenggat-Waktu</th>
         <th>Progress</th>
         <th>Deskripsi</th>
+        <th>Aksi</th>
     </tr>
     {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
+      {% for assignment in list_of_assignments %}
+        <tr>
+            <td>{{assignment.name}}</td>
+            <td>{{assignment.subject}}</td>
+            <td>{{assignment.date}}</td>
+            <td>{{assignment.progress}}</td>
+            <td>{{assignment.description}}</td>
+            <td>
+                <a href="{% url 'study_tracker:modify_assignment' assignment.pk %}">
+                    <button>
+                        Ubah
+                    </button>
+                </a>
+                 <a href="{% url 'study_tracker:delete_assignment' assignment.pk %}">
+                    <button>
+                        Hapus
+                    </button>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
 </table>
-
+<br>
 <h5>Sesi terakhir login: {{ last_login }}</h5>
 
 
@@ -40,13 +103,5 @@
         Tugas Baru
     </button>
 </a>
-{% for assignment in list_of_assignments %}
-    <tr>
-        <td>{{assignment.name}}</td>
-        <td>{{assignment.subject}}</td>
-        <td>{{assignment.date}}</td>
-        <td>{{assignment.progress}}</td>
-        <td>{{assignment.description}}</td>
-    </tr>
-{% endfor %}
+<header></header>
 {% endblock content %}

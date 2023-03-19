@@ -27,10 +27,8 @@ def create_assignment(request):
     context = {'form': form}
     return render(request, "create_assignment.html", context)
 
-...
+
 @login_required(login_url='/tracker/login/')
-
-
 def show_tracker(request):
     assignment_data = Assignment.objects.all()
     context = {
@@ -87,5 +85,28 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('study_tracker:login'))
     response.delete_cookie('last_login')
     return response
+
+def modify_assignment(request, id):
+    # Get data berdasarkan ID
+    assignment = Assignment.objects.get(pk = id)
+
+
+    form = AssignmentForm(request.POST or None, instance=assignment)
+
+    if form.is_valid() and request.method == "POST":
+        # Simpan form dan kembali ke halaman awal
+        form.save()
+        return HttpResponseRedirect(reverse('study_tracker:show_tracker'))
+
+    context = {'form': form}
+    return render(request, "modify_assignment.html", context)
+
+def delete_assignment(request, id):
+
+    assignment = Assignment.objects.get(pk = id)
+    # Hapus data
+    assignment.delete()
+    # Kembali ke halaman awal
+    return HttpResponseRedirect(reverse('study_tracker:show_tracker'))
 
 

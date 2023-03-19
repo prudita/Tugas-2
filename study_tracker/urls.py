@@ -1,6 +1,8 @@
 from django.urls import path
 from study_tracker.views import show_tracker, create_assignment, show_xml, show_json
 from study_tracker.views import register, login_user, logout_user
+from study_tracker.views import modify_assignment
+from study_tracker.views import delete_assignment
 
 
 app_name = 'study_tracker'
@@ -18,6 +20,10 @@ urlpatterns = [
 
     path('logout/', logout_user, name='logout'), #sesuaikan dengan nama fungsi yang dibuat
 
+
+    path('modify/<int:id>', modify_assignment, name='modify_assignment'),
+
+    path('delete/<int:id>', delete_assignment, name='delete_assignment'), #sesuaikan dengan nama fungsi yang dibuat
 
 
 
