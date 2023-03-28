@@ -86,4 +86,5 @@ Referensi:
 
 * https://www.mendix.com/blog/asynchronous-vs-synchronous-programming/
 
+* https://www.theserverside.com/definition/Ajax-Asynchronous-JavaScript-and-XML
 
