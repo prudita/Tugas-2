@@ -6,7 +6,66 @@
 {% endblock meta %}
 
 {% block content %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+$(document).ready(function(){
+    $.get("/tracker/json/", function(data) {
+        for (i=0; i<data.length; i++){
+            $('#tracker').append(`
+            <div id="${data[i].id}--task" class="col-md-6 col-lg-3 mb-3">
+                <div class="card d-flex">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">${data[i].fields.name}</h5>
+                        <p class="card-text date">${data[i].fields.date}</p>
+                        <p class="card-text">${data[i].fields.subject}</p>
+                        <p class="card-text">${data[i].fields.progress}</p>
+                        <p class="card-text">${data[i].fields.description}</p>
+                        <div class="mt-auto">
+                            <a href="/tracker/delete/${data[i].pk}" class="btn btn-primary delete mb-2">Hapus</a>
+                            <a href="/tracker/modify/${data[i].pk}" class="btn btn-secondary mb-2">Ubah</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `)
+        }
+    });
+    $("#submit_btn").click(function(){
+            $.post("/tracker/create-ajax/", {
+                name: $("#name").val(),
+                subject: $("#subject").val(),
+                progress: $("#progress").val(),
+                description: $("#description").val()
+            },
+            function(result, status){
+                if (status == 'success'){
+                    $("#tracker").append(`
+                    <div id="${result.id}--task" class="col-md-6 col-lg-3 mb-3">
+                        <div class="card d-flex">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">${result.name}</h5>
+                                <p class="card-text date">${result.date}</p>
+                                <p class="card-text">${result.subject}</p>
+                                <p class="card-text">${result.progress}</p>
+                                <p class="card-text">${result.description}</p>
+                                <div class="mt-auto">
+                                    <a href="/tracker/delete/${result.id}" class="btn btn-primary delete mb-2">Hapus</a>
+                                    <a href="/tracker/modify/${result.id}" class="btn btn-secondary mb-2">Ubah</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    `);
+                $('#name').val('')
+                $('#date').val('')
+                $('#subject').val('')
+                $('#progress').val('')
+                $('#description').val('')
+                }
+            })
+        })
+    })
+
+</script>
 <nav class="navbar navbar-expand-lg bg-light">
 
     <div class="container-fluid" style="background-color: rgba(245, 120, 2);">
@@ -50,9 +109,9 @@
   <h1 >Hello, world!</h1>
 
   <p><img src="{% static 'img/django-logo-negative.svg' %}"></p>
- 
- 
-  
+
+
+
   <table id="Tabel_1">
     <tr>
         <th>Nama</th>
@@ -104,4 +163,44 @@
     </button>
 </a>
 <header></header>
+
+<body>
+    <h5>Nama: </h5>
+    <p>{{name}}</p>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+        Tambah Tugas
+    </button>
+
+    <!-- Modal -->
+    <div class="modal" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="createModalLabel">Tambah Transaksi</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancel"></button>
+            </div>
+            <div class="modal-body">
+            {% csrf_token %}
+            <label for="name" class="form-label">Nama tugas:</label><br>
+            <input type="text" id="name" class="form-control" name="name"><br>
+            <label for="subject" class="form-label">Mata kuliah tugas:</label>
+            <input type="text" id="subject" class="form-control" name="subject"><br>
+            <label for="amount" class="form-label">Indikator progress tugas:</label><br>
+            <input type="number" id="amount" class="form-control" name="amount" placeholder="0"><br>
+            <label for="description" class="form-label">Deskripsi transaksi:</label><br>
+            <input type="text" id="description" class="form-control" name="description"><br>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button id="submit_btn" type="button" class="btn btn-primary create" id="add-task" data-bs-dismiss="modal">Add</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+
+<div class="row m-2" id="tracker"></div>
+
+
+
 {% endblock content %}

@@ -8,10 +8,10 @@ from django.contrib.auth import authenticate, login, logout
 import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from study_tracker.models import Assignment
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
 
@@ -109,4 +109,26 @@ def delete_assignment(request, id):
     # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('study_tracker:show_tracker'))
 
+@csrf_exempt
+def create_assignment_ajax(request):
+    # create object of form
+    form = AssignmentForm(request.POST or None)
+
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        data = Assignment.objects.last()
+
+        # parsing the form data into json
+        result = {
+            'id':data.id,
+            'name':data.name,
+            'type':data.subject,
+            'amount':data.date,
+            'date':data.progress,
+            'description':data.description,
+        }
+        return JsonResponse(result)
+
+    context = {'form': form}
+    return render(request, "create_transaction.html", context)
 

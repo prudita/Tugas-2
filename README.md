@@ -60,6 +60,11 @@ Selector yang mengelompokkan elemen berdasarkan class-nya. Semua elemen anggota 
 3. ID Selector
 Selector yang mengelompokkan elemen berdasarkan id yang diberikan kepadanya. Id bersifat unik. Dalam kode CSS, id diawali dengan "#".
 
+Tugas 6
+* Perbedaaan synchronous programming dan asynchronous programming 
+Dalam synchronous programming, setiap operasi tergantung pada operasi sebelumnya , sehingga setiap tugas dijalankan secara berurutan. Suatu tugas hanya akan dijalankan setelah tugas sebelumnya selesai berjalan. Sedangkan dalam asynchronous programming, operasi tidak tergantung satu sama lain, sehingga setiap tugas dapat berjalan tanpa urutan tertentu, bahkan dapat berjalan pada waktu yang sama
+
+* Dalam penerapan paradigma event-driven programming, alur dari program ditentukan oleh kejadian seperti tindakan user (menekan tombol mouse, menekan key di keyboard, dan lain-lain), output sensor, dan penerimaan pesan dari program lain.
 
 Referensi:
 
@@ -76,5 +81,9 @@ Referensi:
 * https://stackoverflow.com/questions/3294572/is-input-well-formed-without-a-form
 
 * https://www.hostinger.co.id/tutorial/perbedaan-inline-css-external-css-dan-internal-css
+
+* https://datamyte.com/synchronous-vs-asynchronous/
+
+* https://www.mendix.com/blog/asynchronous-vs-synchronous-programming/
 
 
