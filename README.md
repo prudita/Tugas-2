@@ -1,4 +1,4 @@
-
+Tautan Railway: https://study-tr4cker.up.railway.app/
 
 Tugas 2
 
@@ -64,10 +64,13 @@ Tugas 6
 * Perbedaaan synchronous programming dan asynchronous programming 
 Dalam synchronous programming, setiap operasi tergantung pada operasi sebelumnya , sehingga setiap tugas dijalankan secara berurutan. Suatu tugas hanya akan dijalankan setelah tugas sebelumnya selesai berjalan. Sedangkan dalam asynchronous programming, operasi tidak tergantung satu sama lain, sehingga setiap tugas dapat berjalan tanpa urutan tertentu, bahkan dapat berjalan pada waktu yang sama
 
-* Dalam penerapan paradigma event-driven programming, alur dari program ditentukan oleh kejadian seperti tindakan user (menekan tombol mouse, menekan key di keyboard, dan lain-lain), output sensor, dan penerimaan pesan dari program lain.
+* Dalam penerapan paradigma event-driven programming, alur dari program ditentukan oleh kejadian seperti tindakan user (menekan tombol mouse, menekan key di keyboard, dan lain-lain), output sensor, dan penerimaan pesan dari program lain. 
+
+* Penerapan asynchronous programming pada AJAX:
+Pada saat page HTML me-load, data diakses dari web server.
+Ketika user melakukan suatu tindakan, JavaScript akan membuat suatu object XMLHttpRequest. Object tersebut akan membuat request ke web server. Lalu, web server akan mengirim response ke browser. JavaScript membaca response tersebut dan melakukan tindakan yang sesuai sehingga web page akan diperbarui sesuai tindakan user. Hanya bagian web page yang diperbarui akan di-refresh, sehingga tidak seluruh web page harus di-refresh dan web page tidak harus di-reload. 
 
 Referensi:
-
 * Slide 2 Kuliah Pemrograman Berbasis Platform Genap 2022/2023
 
 * https://www.guru99.com/xml-vs-html-difference.html#:~:text=XML%20is%20abbreviation%20for%20extensible,while%20HTML%20is%20Case%20insensitive
